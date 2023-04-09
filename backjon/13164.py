@@ -46,23 +46,17 @@ import sys
 
 n,m = map(int,sys.stdin.readline().split())
 data_list = list(map(int,input().split()))
-cnt = m
+diff_list = []
+answer = 0
 
 if m == 1 :
     print(data_list[-1]-data_list[0])
 
 else:
-    while cnt != 1:
-        back_diff = data_list[-1]-data_list[-2]
-        front_diff = data_list[-2]-data_list[0]
+    for i in range(0,len(data_list)-1):
+        diff_list.append(data_list[i+1]-data_list[i])
+    diff_list.sort()
 
-        if front_diff >= back_diff:
-            
-        else:
-
-
-        cnt -=1
-
-
-
-print(n,m,data_list)
+    for i in range(0,n-m):
+        answer += diff_list[i]
+    print(answer)
